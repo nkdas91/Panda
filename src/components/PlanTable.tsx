@@ -9,6 +9,15 @@ const PlanTable = ({ plans }: PlanTableProps) => {
   // Extract all unique features from all plans
   const features = Array.from(new Set(plans.flatMap((plan) => plan.features)));
 
+  // Plans inherit features from previous tiers
+  const getPlanFeatures = (index: number) => {
+    return new Set(
+      plans
+        .slice(0, index + 1)
+        .flatMap((previousPlan) => previousPlan.features),
+    );
+  };
+
   return (
     <section className="mx-auto max-w-7xl px-6 py-16">
       <div className="overflow-x-auto rounded-xl">
@@ -94,8 +103,8 @@ const PlanTable = ({ plans }: PlanTableProps) => {
                 </td>
 
                 {/* Availability */}
-                {plans.map((plan) => {
-                  const available = plan.features.includes(feature);
+                {plans.map((plan, planIndex) => {
+                  const available = getPlanFeatures(planIndex).has(feature);
 
                   return (
                     <td
@@ -107,12 +116,11 @@ const PlanTable = ({ plans }: PlanTableProps) => {
                         ${
                           plan.popular
                             ? `border-x-2 border-accent bg-indigo-50/50
-
-                            ${
-                              featureIndex === features.length - 1
-                                ? "border-b-2 rounded-b-2xl"
-                                : ""
-                            }`
+                              ${
+                                featureIndex === features.length - 1
+                                  ? "border-b-2 rounded-b-2xl"
+                                  : ""
+                              }`
                             : ""
                         }
                       `}
@@ -127,22 +135,6 @@ const PlanTable = ({ plans }: PlanTableProps) => {
                 })}
               </tr>
             ))}
-
-            {/* Add bottom border for popular column */}
-            {/* <tr>
-              <td />
-
-              {plans.map((plan) => (
-                <td
-                  key={plan.id}
-                  className={
-                    plan.popular
-                      ? "rounded-b-2xl border-x-2 border-b-2 border-accent bg-indigo-50/50"
-                      : ""
-                  }
-                />
-              ))}
-            </tr> */}
           </tbody>
         </table>
       </div>
