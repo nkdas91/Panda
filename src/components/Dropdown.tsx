@@ -21,12 +21,10 @@ const Dropdown = ({
   variant = "dropdown",
 }: DropdownProps) => {
   const [open, setOpen] = useState(false);
-  const [isTouch, setIsTouch] = useState(false);
 
   const handlePointerEnter = (event: React.PointerEvent) => {
     if (event.pointerType === "mouse") {
       setOpen(true);
-      setIsTouch(false);
     }
   };
 
@@ -40,7 +38,6 @@ const Dropdown = ({
     // Desktop uses hover, mobile uses click
     if (window.matchMedia("(pointer: coarse)").matches) {
       event.preventDefault();
-      setIsTouch(true);
       setOpen((prev) => !prev);
     }
   };
