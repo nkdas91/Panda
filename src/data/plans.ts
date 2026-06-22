@@ -1,0 +1,85 @@
+import type { Plan } from "../types/plan";
+
+export const plans: Plan[] = [
+  {
+    id: "starter",
+    name: "Starter",
+    price: "$39",
+    originalPrice: "$99",
+    billing: "Per month",
+    description:
+      "Perfect for bloggers and small websites looking to automate AI-powered content creation.",
+    image: "/images/plans/logo-diap.svg",
+    gradient: ["#2a0e38", "#5d237a"],
+    features: [
+      "Generate AI-powered blog articles",
+      "SEO-optimized content creation",
+      "Automatic WordPress publishing",
+      "Basic keyword targeting",
+      "Single website support",
+      "Community support",
+    ],
+    buttonText: "Buy Starter",
+  },
+  {
+    id: "professional",
+    name: "Professional",
+    price: "$78",
+    originalPrice: "$199",
+    billing: "Per month",
+    description:
+      "For growing websites that need more content automation and better SEO performance.",
+    image: "/images/plans/logo-diap.svg",
+    gradient: ["#3b0764", "#4f46e5"],
+    features: [
+      "Everything in Starter",
+      "Higher article generation limits",
+      "Advanced SEO optimization",
+      "Multiple website support",
+      "Content scheduling",
+      "Priority support",
+    ],
+    buttonText: "Buy Professional",
+    popular: true,
+  },
+  {
+    id: "business",
+    name: "Business",
+    price: "$117",
+    originalPrice: "$299",
+    billing: "Per month",
+    description:
+      "Designed for agencies and businesses managing multiple content-driven websites.",
+    image: "/images/plans/logo-diap.svg",
+    gradient: ["#4a044e", "#a61e69"],
+    features: [
+      "Everything in Professional",
+      "Unlimited website connections",
+      "Bulk content generation",
+      "Advanced publishing controls",
+      "Agency-friendly workflow",
+      "Premium support",
+    ],
+    buttonText: "Buy Business",
+  },
+  {
+    id: "agency",
+    name: "Agency",
+    price: "$156",
+    originalPrice: "$399",
+    billing: "Per month",
+    description:
+      "The complete solution for agencies scaling automated SEO content production.",
+    image: "/images/plans/logo-diap.svg",
+    gradient: ["#0f172a", "#1e293b"],
+    features: [
+      "Everything in Business",
+      "Maximum article generation limits",
+      "Manage client websites",
+      "White-label workflow",
+      "Priority feature access",
+      "Dedicated support",
+    ],
+    buttonText: "Buy Agency",
+  },
+];

@@ -1,0 +1,5 @@
+nav {
+  background: linear-gradient(60deg, var(--color-primary), var(--color-accent));
+}
+
+/* linear-gradient(135deg, #f6eef9 0%, #fde7f2 100%); */
